@@ -32,7 +32,7 @@ Both files can be found from the `initial` and the `complete` directories.
 
 # Running
 
-http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html
+By default the project is configured to run at `http://localhost:8080`, but the port can be changed in `resources/application.properties`
 
 IDEs:
 Import the project and add the run Application configuration if it does not already exist.
@@ -42,6 +42,9 @@ Gradle:
 
 Maven:
 `mvn spring-boot:run`
+
+More Info:
+http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html
 
 # Working with the tutorial
 
