@@ -53,7 +53,7 @@ public class FormPayWithCardController extends PaymentHighway {
 
     CommitTransactionResponse response = paymentApi.commitTransaction(transactionId, "1990", "EUR");
 
-    if (response.getResult().getCode().equals(RESPONSE_CODE_OK)) {
+    if (response.getResult().getCode().equals(RESULT_CODE_OK)) {
       model.addAttribute("card", response.getCard());
       return "pay_with_card_success";
     } else {

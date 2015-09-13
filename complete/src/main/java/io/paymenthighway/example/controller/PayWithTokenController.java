@@ -28,7 +28,7 @@ public class PayWithTokenController extends PaymentHighway {
 
       TransactionResponse response = paymentApi.debitTransaction(transactionId, request);
 
-      if (response.getResult().getCode().equals(RESPONSE_CODE_OK)) {
+      if (response.getResult().getCode().equals(RESULT_CODE_OK)) {
         model.addAttribute("transactionId", transactionId);
         model.addAttribute("token", requestToken);
         return "pay_with_token_success";

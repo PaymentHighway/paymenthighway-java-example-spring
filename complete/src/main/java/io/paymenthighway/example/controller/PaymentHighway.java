@@ -31,7 +31,7 @@ abstract public class PaymentHighway extends WebMvcConfigurerAdapter {
 
   private SecureSigner secureSigner;
 
-  protected final static String RESPONSE_CODE_OK = "100";
+  protected final static String RESULT_CODE_OK = "100";
 
   @PostConstruct
   public void init() {

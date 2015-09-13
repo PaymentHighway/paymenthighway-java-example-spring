@@ -50,7 +50,7 @@ public class FormAddCardController extends PaymentHighway {
 
     TokenizationResponse response = paymentApi.tokenize(tokenizationId);
 
-    if (response.getResult().getCode().equals(RESPONSE_CODE_OK)) {
+    if (response.getResult().getCode().equals(RESULT_CODE_OK)) {
       model.addAttribute("card", response.getCard());
       model.addAttribute("cardToken", response.getCardToken());
       return "add_card_success";
