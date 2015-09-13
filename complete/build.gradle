@@ -13,7 +13,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'gs-validating-form-input'
+    baseName = 'paymenthighway-example-java-spring'
     version =  '0.1.0'
 }
 
