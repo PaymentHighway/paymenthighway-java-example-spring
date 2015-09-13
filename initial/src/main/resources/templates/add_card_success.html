@@ -1,0 +1,11 @@
+<html>
+	<body>
+        <h2>Congratulations!</h2>
+        You added card:<br/>
+        <span data-th-text="${card.getType()}"></span> ...<span data-th-text="${card.getPartialPan()}"></span><br/>
+        <span data-th-text="${card.getExpireMonth()}"></span> / <span data-th-text="${card.getExpireYear()}"></span><br/>
+        Token: <span data-th-text="${cardToken}"></span> - <a data-th-href="@{/pay_with_token(token=${cardToken})}">Pay with it</a>
+
+        <p><a href="/">I want to try again!</a></p>
+	</body>
+</html>

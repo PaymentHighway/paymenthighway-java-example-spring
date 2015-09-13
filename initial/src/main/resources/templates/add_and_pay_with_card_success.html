@@ -1,0 +1,10 @@
+<html>
+<body>
+    <h2>Congratulations!</h2>
+    You paid with card:<br/>
+    <span data-th-text="${card.getType()}"></span> ...<span data-th-text="${card.getPartialPan()}"></span><br/>
+    <span data-th-text="${card.getExpireMonth()}"></span> / <span data-th-text="${card.getExpireYear()}"></span><br/>
+    Token: <span data-th-if="${token != null}" data-th-text="${token}">Tokenization failed.</span>
+    <p><a href="/">I want to try again!</a></p>
+</body>
+</html>

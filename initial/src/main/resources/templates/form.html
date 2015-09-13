@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <form action="#" data-th-action="${action}" data-th-method="${method}">
+            <table>
+                <tr data-th-each="pair : ${fields}">
+                    <td data-th-text="${pair.getName()}"></td>
+                    <td>
+                        <span data-th-text="${pair.getValue()}"></span>
+                        <input type="hidden" data-th-name="${pair.getName()}" data-th-value="${pair.getValue()}"/>
+                    </td>
+                </tr>
+                <tr>
+                <td><button type="submit">Submit</button></td><td><a href="/">Back</a></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
