@@ -14,7 +14,7 @@ import java.util.UUID;
 
 
 @Controller
-public class FormPayWithCardController extends PaymentHighwayController {
+public class FormPayWithCardController extends PaymentHighway {
 
   private static final String baseUri = "/pay_with_card/";
   private static final String successUri = baseUri + "success";

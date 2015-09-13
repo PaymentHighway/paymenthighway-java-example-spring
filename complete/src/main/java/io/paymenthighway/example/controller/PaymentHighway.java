@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-abstract public class PaymentHighwayController extends WebMvcConfigurerAdapter {
+abstract public class PaymentHighway extends WebMvcConfigurerAdapter {
 
   /**
    * The Form builder is a helper class to build a {@link io.paymenthighway.FormContainer}r for a specific Form.

@@ -14,7 +14,7 @@ import java.util.UUID;
 
 
 @Controller
-public class PayWithTokenController extends PaymentHighwayController {
+public class PayWithTokenController extends PaymentHighway {
 
   @RequestMapping(value="/pay_with_token", method=RequestMethod.GET)
   public String payWithToken(@RequestParam("token") String requestToken, Model model) throws IOException {
