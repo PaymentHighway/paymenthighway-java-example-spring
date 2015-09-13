@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:config/paymenthighway.properties")
+@PropertySource("classpath:paymenthighway.properties")
 public class PaymentHighwaySettings {
 
     @Value("${paymenthighway.account}")
