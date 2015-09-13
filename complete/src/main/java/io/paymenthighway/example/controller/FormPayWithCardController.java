@@ -16,13 +16,13 @@ import java.util.UUID;
 @Controller
 public class FormPayWithCardController extends PaymentHighway {
 
-  private static final String baseUri = "/pay_with_card/";
-  private static final String successUri = baseUri + "success";
-  private static final String failureUri = baseUri + "failure";
-  private static final String cancelUri = baseUri + "cancel";
+  private static final String baseUri = "/pay_with_card";
+  private static final String successUri = baseUri + "/success";
+  private static final String failureUri = baseUri + "/failure";
+  private static final String cancelUri = baseUri + "/cancel";
 
 
-  @RequestMapping(value="/pay_with_card", method=RequestMethod.GET)
+  @RequestMapping(value=baseUri, method=RequestMethod.GET)
   public String showForm(HttpServletRequest request, Model model) {
     String amount = "1990";
     String currency = "EUR";
@@ -44,7 +44,7 @@ public class FormPayWithCardController extends PaymentHighway {
     return "form";
   }
 
-  @RequestMapping(value="/pay_with_card/success", method=RequestMethod.GET)
+  @RequestMapping(value=successUri, method=RequestMethod.GET)
   public String success(@RequestParam Map<String,String> requestParams, Model model) throws Exception {
 
     validateFormRedirection(requestParams);
@@ -62,7 +62,7 @@ public class FormPayWithCardController extends PaymentHighway {
     }
   }
 
-  @RequestMapping(value="/pay_with_card/failure", method=RequestMethod.GET)
+  @RequestMapping(value=failureUri, method=RequestMethod.GET)
   public String failure(@RequestParam Map<String,String> requestParams, Model model) throws Exception {
 
     String signatureExplanation = getSignatureDescription(requestParams);
@@ -75,7 +75,7 @@ public class FormPayWithCardController extends PaymentHighway {
     return "fatal_error";
   }
 
-  @RequestMapping(value="/pay_with_card/cancel", method=RequestMethod.GET)
+  @RequestMapping(value=cancelUri, method=RequestMethod.GET)
   public String cancel(@RequestParam Map<String,String> requestParams) throws Exception {
     validateFormRedirection(requestParams);
     return "cancel";
