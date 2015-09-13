@@ -14,7 +14,7 @@ import java.util.Map;
 abstract public class PaymentHighway extends WebMvcConfigurerAdapter {
 
   /**
-   * The Form builder is a helper class to build a {@link io.paymenthighway.FormContainer}r for a specific Form.
+   * The Form builder is a helper class to build a {@link io.paymenthighway.FormContainer} for a specific Form.
    * The FormContainer can be used to generate the required fields, method to initiate the Payment Highway form.
    */
   protected FormBuilder formBuilder;
@@ -27,9 +27,9 @@ abstract public class PaymentHighway extends WebMvcConfigurerAdapter {
   protected PaymentAPI paymentApi;
 
   @Autowired
-  private PaymentHighwaySettings settings;
+  protected PaymentHighwaySettings settings;
 
-  private SecureSigner secureSigner;
+  protected SecureSigner secureSigner;
 
   protected final static String RESULT_CODE_OK = "100";
 
