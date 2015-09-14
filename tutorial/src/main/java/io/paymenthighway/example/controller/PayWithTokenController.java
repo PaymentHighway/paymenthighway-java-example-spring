@@ -21,6 +21,8 @@ public class PayWithTokenController extends PaymentHighway {
 
     try {
 
+      unimplemented("payWithToken");
+
       // Create a new Token object using the request parameter
       Token token = null;
 
