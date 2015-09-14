@@ -27,6 +27,7 @@ public class FormPayWithCardController extends PaymentHighway {
 
     String serverPath = getServerPath(request);
     String language = "EN";
+    String currency = "EUR";
 
     /**
      * Use the formBuilder to generate the payment formContainer.

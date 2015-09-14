@@ -26,6 +26,8 @@ public class PayWithTokenController extends PaymentHighway {
       // Create a new Token object using the request parameter
       Token token = null;
 
+      String currency = "EUR";
+
       // Create a new TransactionRequest using the token
       TransactionRequest request = null;
 
