@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.paymenthighway</groupId>
-    <artifactId>example-java-spring-initial</artifactId>
+    <artifactId>example-java-spring-tutorial</artifactId>
     <version>0.1.0</version>
 
     <parent>

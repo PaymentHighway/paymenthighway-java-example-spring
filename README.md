@@ -17,9 +17,9 @@ Package: "io.paymenthighway:paymenthighway:1.0-SNAPSHOT"
 
 # Structure 
 
-* `initial`
+* `tutorial`
 
-Contains a tutorial version of this example. Follow instructional comments in the controllers and build up your application!
+Contains a tutorial version of this example. Follow the instructional comments in the controllers and build up your application!
 
 * `complete`
 
@@ -28,7 +28,7 @@ Contains a complete working example.
 # Importing project to IDE
 
 You can use the `pom.xml` to import the example as a Maven project, or the `gradle.build` as Gradle.
-Both files can be found from the `initial` and the `complete` directories.
+Both files can be found from the `tutorial` and the `complete` directories.
 
 # Running
 
@@ -51,7 +51,7 @@ http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running
 
 It is recommended to first have a look at the Payment Highway Documentation page and the Java Library readme in Github. The library has some examples which can be used in this tutorial.
 
-Once you have imported the `initial` project, you can start filling in the missing parts. You may for example start with the controller.FormAddCardController class. At any time you can run the application and try it out.
+Once you have imported the `tutorial` project, you can start filling in the missing parts. You may for example start with the controller.FormAddCardController class. At any time you can run the application and try it out.
 
 
 # Help us make it better
