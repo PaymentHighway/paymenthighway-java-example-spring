@@ -11,9 +11,9 @@ Package: "io.paymenthighway:paymenthighway:1.0-SNAPSHOT"
 
 # Requirements
 - An internet connection for dependencies and running the Application
-- Java 8
+- Java 8 JDK
 - Optionally (recommended): An IDE such as IntelliJ Idea (https://www.jetbrains.com/idea/) or Eclipse (https://eclipse.org/)
-- Optionally: Maven or Maven plugin in IDEA (however gradle binaries is included) 
+- Optionally: Maven or Maven plugin in IDE (gradle binaries is included) 
 
 # Structure 
 
@@ -28,7 +28,7 @@ Contains a complete working example.
 # Importing project to IDE
 
 You can use the `pom.xml` to import the example as a Maven project, or the `gradle.build` as Gradle.
-Both files can be found from the `tutorial` and the `complete` directories.
+Both files can be found from the `tutorial` and the `complete` directories. Remember to use Java 8 JDK.
 
 # Running
 
