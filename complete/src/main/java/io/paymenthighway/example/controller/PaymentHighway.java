@@ -84,4 +84,8 @@ abstract public class PaymentHighway extends WebMvcConfigurerAdapter {
       throw new Exception("Invalid signature! Shut down everything!");
     }
   }
+
+  protected void unimplemented(String method) throws Exception {
+    throw new Exception("You need to implement the method: " + getClass() + "::" + method);
+  }
 }

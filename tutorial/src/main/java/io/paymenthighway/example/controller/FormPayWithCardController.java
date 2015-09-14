@@ -49,6 +49,7 @@ public class FormPayWithCardController extends PaymentHighway {
   @RequestMapping(value=successUri, method=RequestMethod.GET)
   public String success(@RequestParam Map<String,String> requestParams, Model model) throws Exception {
 
+    unimplemented("success");
 
     /**
      * Use the SecureSigner to validate form redirection.

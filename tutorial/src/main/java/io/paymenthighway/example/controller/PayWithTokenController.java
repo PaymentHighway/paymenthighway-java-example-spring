@@ -17,9 +17,11 @@ import java.util.UUID;
 public class PayWithTokenController extends PaymentHighway {
 
   @RequestMapping(value="/pay_with_token", method=RequestMethod.GET)
-  public String payWithToken(@RequestParam("token") String requestToken, Model model) throws IOException {
+  public String payWithToken(@RequestParam("token") String requestToken, Model model) throws Exception {
 
     try {
+
+      unimplemented();
 
       // Create a new Token object using the request parameter
       Token token = null;
