@@ -1,6 +1,7 @@
 package io.paymenthighway.example.controller;
 
 import io.paymenthighway.FormContainer;
+import io.paymenthighway.example.utils.Sorting;
 import io.paymenthighway.model.response.CommitTransactionResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +44,10 @@ public class FormPayWithCardController extends PaymentHighway {
 
 
     // It is also recommended to log and/or store the request ID (formContainer.getRequestId)
+
+    // These are just auxiliary attributes for displaying the authentication string
+    model.addAttribute("byKeyComparator", Sorting.getByKeyComparator());
+    model.addAttribute("serviceUrl", settings.getServiceUrl());
 
     return "form";
   }

@@ -1,6 +1,7 @@
 package io.paymenthighway.example.controller;
 
 import io.paymenthighway.FormContainer;
+import io.paymenthighway.example.utils.Sorting;
 import io.paymenthighway.model.response.CommitTransactionResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
@@ -40,6 +42,10 @@ public class FormAddAndPayWithCardController extends PaymentHighway {
     model.addAttribute("fields", formContainer.getFields());
 
     System.out.println("Initialized form with request-id:" + formContainer.getRequestId());
+
+    // These are just auxiliary attributes for displaying the authentication string
+    model.addAttribute("byKeyComparator", Sorting.getByKeyComparator());
+    model.addAttribute("serviceUrl", settings.getServiceUrl());
 
     return "form";
   }
