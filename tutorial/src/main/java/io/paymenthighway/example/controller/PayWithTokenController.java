@@ -28,7 +28,7 @@ public class PayWithTokenController extends PaymentHighway {
 
       String currency = "EUR";
 
-      // Create a new TransactionRequest using the token
+      // Create a new TransactionRequest using the token, using TransactionRequest.Builder() is recommended
       TransactionRequest request = null;
 
       // Initialize a server-to-server transaction using the PaymentAPI
