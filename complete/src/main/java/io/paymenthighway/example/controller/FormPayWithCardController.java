@@ -1,6 +1,7 @@
 package io.paymenthighway.example.controller;
 
 import io.paymenthighway.FormContainer;
+import io.paymenthighway.example.utils.Sorting;
 import io.paymenthighway.model.response.CommitTransactionResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class FormPayWithCardController extends PaymentHighway {
 
   @RequestMapping(value=baseUri, method=RequestMethod.GET)
   public String showForm(HttpServletRequest request, Model model) {
-    String amount = "1990";
+    Long amount = 1990L;
     String currency = "EUR";
     String orderId = "1000123A";
     String description = "A Box of Dreams. 19,90€";
@@ -33,13 +34,17 @@ public class FormPayWithCardController extends PaymentHighway {
     String serverPath = getServerPath(request);
 
     FormContainer formContainer = formBuilder.generatePaymentParameters(serverPath + successUri,
-            serverPath + failureUri, serverPath + cancelUri, language, amount, currency, orderId, description);
+            serverPath + failureUri, serverPath + cancelUri, language, Long.toString(amount), currency, orderId, description);
 
     model.addAttribute("action", formContainer.getAction());
     model.addAttribute("method", formContainer.getMethod());
     model.addAttribute("fields", formContainer.getFields());
 
     System.out.println("Initialized form with request-id:" + formContainer.getRequestId());
+
+    // These are just auxiliary attributes for displaying the authentication string
+    model.addAttribute("byKeyComparator", Sorting.getByKeyComparator());
+    model.addAttribute("serviceUrl", settings.getServiceUrl());
 
     return "form";
   }
@@ -51,7 +56,7 @@ public class FormPayWithCardController extends PaymentHighway {
 
     UUID transactionId = UUID.fromString(requestParams.get("sph-transaction-id"));
 
-    CommitTransactionResponse response = paymentApi.commitTransaction(transactionId, "1990", "EUR");
+    CommitTransactionResponse response = paymentApi.commitTransaction(transactionId, Long.toString(1990), "EUR");
 
     if (response.getResult().getCode().equals(RESULT_CODE_OK)) {
       model.addAttribute("card", response.getCard());

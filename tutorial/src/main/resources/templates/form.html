@@ -1,18 +1,25 @@
 <html>
-    <body>
-        <form action="#" data-th-action="${action}" data-th-method="${method}">
-            <table>
-                <tr data-th-each="pair : ${fields}">
-                    <td data-th-text="${pair.getName()}"></td>
-                    <td>
-                        <span data-th-text="${pair.getValue()}"></span>
-                        <input type="hidden" data-th-name="${pair.getName()}" data-th-value="${pair.getValue()}"/>
-                    </td>
-                </tr>
-                <tr>
-                <td><button type="submit">Submit</button></td><td><a href="/">Back</a></td>
-                </tr>
-            </table>
-        </form>
-    </body>
+<body>
+<form action="#" data-th-action="${action}" data-th-method="${method}">
+
+    <input type="hidden" data-th-each="pair : ${fields}" data-th-name="${pair.getName()}" data-th-value="${pair.getValue()}"/>
+
+    <table>
+        <tr data-th-each="pair : ${fields}">
+            <td data-th-text="${pair.getName()}"></td>
+            <td data-th-text="${pair.getValue()}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td><td><a href="/">Back</a></td>
+        </tr>
+    </table>
+</form>
+<hr/>
+<pre>
+"<span data-th-text="${method}"></span>
+<span data-th-text="${action.replace(serviceUrl, '')}"></span>
+<span data-th-inline="text" data-th-each="pair : ${#lists.sort(fields.?[getName().substring(0, 4) == 'sph-'], byKeyComparator)}" data-th-if="${pair.getName().substring(0, 4)} == 'sph-'">[[${pair.getName()}]]:[[${pair.getValue()}]]</span>
+"
+</pre>
+</body>
 </html>

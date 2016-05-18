@@ -22,7 +22,7 @@ public class PayWithTokenController extends PaymentHighway {
     try {
       Token token = new Token(requestToken);
 
-      TransactionRequest request = new TransactionRequest(token, "1990", "EUR");
+      TransactionRequest request = new TransactionRequest.Builder(token, 1990, "EUR").build();
 
       UUID transactionId = paymentApi.initTransaction().getId();
 
