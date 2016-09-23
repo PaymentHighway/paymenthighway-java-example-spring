@@ -75,7 +75,7 @@ public class FormAddAndPayWithCardController extends PaymentHighway {
      * Make a commit server-to-server request using the PaymentApi in order to get the card details and the token,
      * or the error result if the payment was rejected.
      *
-     * The transaction must be committed with the same amount as initialized!
+     * The transaction must be committed with same or smaller as initialized!
      *
      * The card token may be missing if the payment was successful but the card does not support tokenized payments,
      * e.g. always requires cvc2/cvv2.

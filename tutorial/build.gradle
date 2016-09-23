@@ -40,7 +40,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.hibernate:hibernate-validator")
     compile("org.apache.tomcat.embed:tomcat-embed-el")
-    compile("io.paymenthighway:paymenthighway:1.1-SNAPSHOT")
+    compile("io.paymenthighway:paymenthighway:1.4-SNAPSHOT")
     testCompile("junit:junit")
 }
 

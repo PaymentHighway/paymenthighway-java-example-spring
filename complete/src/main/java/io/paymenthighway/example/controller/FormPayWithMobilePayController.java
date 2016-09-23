@@ -2,7 +2,7 @@ package io.paymenthighway.example.controller;
 
 import io.paymenthighway.FormContainer;
 import io.paymenthighway.example.utils.Sorting;
-import io.paymenthighway.model.response.TokenizationResponse;
+import io.paymenthighway.model.response.CommitTransactionResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +15,9 @@ import java.util.UUID;
 
 
 @Controller
-public class FormAddCardController extends PaymentHighway {
+public class FormPayWithMobilePayController extends PaymentHighway {
 
-  private static final String baseUri = "/add_card";
+  private static final String baseUri = "/pay_with_mobilepay";
   private static final String successUri = baseUri + "/success";
   private static final String failureUri = baseUri + "/failure";
   private static final String cancelUri = baseUri + "/cancel";
@@ -25,13 +25,18 @@ public class FormAddCardController extends PaymentHighway {
 
   @RequestMapping(value=baseUri, method=RequestMethod.GET)
   public String showForm(HttpServletRequest request, Model model) {
+    Long amount = 1990L;
+    String currency = "EUR";
+    String orderId = "1000123A";
+    String description = "A Box of Dreams. 19,90€";
 
     String language = "EN";
-
     String serverPath = getServerPath(request);
 
-    FormContainer formContainer = formBuilder.generateAddCardParameters(
-            serverPath + successUri, serverPath + failureUri, serverPath + cancelUri, language, null, null, null, null, null);
+    FormContainer formContainer = formBuilder.generatePayWithMobilePayParameters(serverPath + successUri,
+            serverPath + failureUri, serverPath + cancelUri, language, Long.toString(amount),
+            currency, orderId, description, false
+    );
 
     model.addAttribute("action", formContainer.getAction());
     model.addAttribute("method", formContainer.getMethod());
@@ -51,14 +56,13 @@ public class FormAddCardController extends PaymentHighway {
 
     validateFormRedirection(requestParams);
 
-    UUID tokenizationId = UUID.fromString(requestParams.get("sph-tokenization-id"));
+    UUID transactionId = UUID.fromString(requestParams.get("sph-transaction-id"));
 
-    TokenizationResponse response = paymentApi.tokenize(tokenizationId);
+    CommitTransactionResponse response = paymentApi.commitTransaction(transactionId, Long.toString(1990), "EUR");
 
     if (response.getResult().getCode().equals(RESULT_CODE_OK)) {
       model.addAttribute("card", response.getCard());
-      model.addAttribute("cardToken", response.getCardToken());
-      return "add_card_success";
+      return "pay_with_card_success";
     } else {
       model.addAttribute("result", response.getResult());
       return "transaction_failed";
