@@ -33,10 +33,10 @@ public class FormPayWithMobilePayController extends PaymentHighway {
     String language = "EN";
     String serverPath = getServerPath(request);
 
-    FormContainer formContainer = formBuilder.generatePayWithMobilePayParameters(serverPath + successUri,
-            serverPath + failureUri, serverPath + cancelUri, language, Long.toString(amount),
-            currency, orderId, description, false
-    );
+    FormContainer formContainer = formBuilder.mobilePayParametersBuilder(serverPath + successUri,
+            serverPath + failureUri, serverPath + cancelUri, Long.toString(amount), currency, orderId, description)
+        .language(language)
+        .build();
 
     model.addAttribute("action", formContainer.getAction());
     model.addAttribute("method", formContainer.getMethod());
