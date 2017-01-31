@@ -30,8 +30,10 @@ public class FormAddCardController extends PaymentHighway {
 
     String serverPath = getServerPath(request);
 
-    FormContainer formContainer = formBuilder.generateAddCardParameters(
-            serverPath + successUri, serverPath + failureUri, serverPath + cancelUri, language, null, null, null, null, null);
+    FormContainer formContainer = formBuilder.addCardParameters(
+        serverPath + successUri, serverPath + failureUri, serverPath + cancelUri)
+        .language(language)
+        .build();
 
     model.addAttribute("action", formContainer.getAction());
     model.addAttribute("method", formContainer.getMethod());

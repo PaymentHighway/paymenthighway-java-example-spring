@@ -34,8 +34,10 @@ public class FormAddAndPayWithCardController extends PaymentHighway {
     String language = "EN";
     String serverPath = getServerPath(request);
 
-    FormContainer formContainer = formBuilder.generateAddCardAndPaymentParameters(serverPath + successUri,
-            serverPath + failureUri, serverPath + cancelUri, language, Long.toString(amount), currency, orderId, description, null, null, null, false);
+    FormContainer formContainer = formBuilder.addCardAndPaymentParameters(serverPath + successUri,
+        serverPath + failureUri, serverPath + cancelUri, Long.toString(amount), currency, orderId, description)
+        .language(language)
+        .build();
 
     model.addAttribute("action", formContainer.getAction());
     model.addAttribute("method", formContainer.getMethod());
