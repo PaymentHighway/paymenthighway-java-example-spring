@@ -2,6 +2,7 @@ package io.paymenthighway.example.controller;
 
 import io.paymenthighway.FormContainer;
 import io.paymenthighway.example.utils.Sorting;
+import io.paymenthighway.formBuilders.CardFormParametersInterface;
 import io.paymenthighway.model.response.CommitTransactionResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class FormPayWithCardController extends PaymentHighway {
 
 
   @RequestMapping(value=baseUri, method=RequestMethod.GET)
-  public String showForm(HttpServletRequest request, Model model) {
+  public String showForm(HttpServletRequest request, Model model, @RequestParam(value = "skipPaymentSelector", required = false, defaultValue = "false") Boolean skipPaymentSelector) {
     Long amount = 1990L;
     String currency = "EUR";
     String orderId = "1000123A";
@@ -33,11 +34,14 @@ public class FormPayWithCardController extends PaymentHighway {
     String language = "EN";
     String serverPath = getServerPath(request);
 
-    FormContainer formContainer = formBuilder.paymentParameters(serverPath + successUri,
+    CardFormParametersInterface formBuilderInterface = formBuilder.paymentParameters(serverPath + successUri,
         serverPath + failureUri, serverPath + cancelUri, Long.toString(amount), currency, orderId, description)
-        .language(language)
-        .build();
+        .language(language);
 
+    if(skipPaymentSelector){
+       formBuilderInterface = formBuilderInterface.skipPaymentMethodSelectionPage(true);
+    }
+    FormContainer formContainer = formBuilderInterface.build();
     model.addAttribute("action", formContainer.getAction());
     model.addAttribute("method", formContainer.getMethod());
     model.addAttribute("fields", formContainer.getFields());
