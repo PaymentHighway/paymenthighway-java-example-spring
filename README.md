@@ -7,7 +7,7 @@ The project is pre-configured to use the Payment Highway development sandbox env
 Payment Highway Documentation: https://paymenthighway.fi/dev/
 Java Lib Source: https://github.com/solinor/paymenthighway-java-lib
 Maven Repository: "https://oss.sonatype.org/content/repositories/snapshots"
-Package: "io.paymenthighway:paymenthighway:1.0-SNAPSHOT"
+Package: "io.paymenthighway:paymenthighway:1.10.1"
 
 # Requirements
 - An internet connection for dependencies and running the Application
